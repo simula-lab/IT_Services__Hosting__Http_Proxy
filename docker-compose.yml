@@ -4,8 +4,12 @@ services:
     image: nginx:alpine
     container_name: nginx-proxy
     restart: always
-    ports: ["80:80", "443:443"]
+    ports: 
+      - "80:80"
+      - "443:443"
+
     volumes:
+      - vhostd:/etc/nginx/vhost.d
       - conf:/etc/nginx/conf.d
       - html:/usr/share/nginx/html
       - ./le-cert:/etc/nginx/certs:ro
@@ -44,6 +48,7 @@ services:
       - proxy
 
 volumes:
+  vhostd:
   conf:
   html:
   acme:
