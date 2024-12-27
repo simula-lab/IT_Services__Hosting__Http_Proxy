@@ -13,6 +13,7 @@ services:
       - conf:/etc/nginx/conf.d
       - html:/usr/share/nginx/html
       - ./le-cert:/etc/nginx/certs:ro
+      - ./proxy-default.conf:/etc/nginx/conf.d/proxy-default.conf:ro
     networks:
       proxy:
         ipv4_address: 172.18.0.2
