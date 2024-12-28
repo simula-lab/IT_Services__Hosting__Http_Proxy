@@ -12,6 +12,7 @@ services:
       - vhostd:/etc/nginx/vhost.d
       - conf:/etc/nginx/conf.d
       - html:/usr/share/nginx/html
+      - cache:/var/cache/nginx
       - ./le-cert:/etc/nginx/certs:ro
       - ./proxy-default.conf:/etc/nginx/conf.d/proxy-default.conf:ro
     networks:
@@ -56,6 +57,7 @@ volumes:
   vhostd:
   conf:
   html:
+  cache:
   acme:
 
 networks:
